@@ -1,0 +1,95 @@
+@model IEnumerable<flightapp.Models.Suhasinibooking>
+
+@{
+    ViewData["Title"] = "Bookingdetails";
+    Layout="~/Views/Shared/Homelayout.cshtml";
+}
+<style>
+    th{
+        border: 1px  solid white !important; 
+        background-color: rgb(0, 0, 0) !important ; 
+        color:rgb(255, 255, 255) !important ; 
+         text-align:center !important ; vertical-align:middle !important ;
+    }
+    td{
+        border: 1px  solid white !important ; background-color:white !important ; color:black!important ;  text-align:center !important ; vertical-align:middle!important ;
+    }
+</style>
+
+<h1>Booking details</h1>
+<style>
+    a{
+        text-decoration: none;
+        color: white;
+    }
+</style>
+
+
+<table class="table" style=" border-spacing:0 15px; border-collapse:separate; ">
+    <thead>
+        <tr style="height:120px; ">
+            <th style="border-radius:5px 0 0 5px;">
+                @Html.DisplayNameFor(model => model.Bookingid)
+            </th>
+            
+            <th>
+                Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flightid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bookingdate)
+            </th>
+            <th>
+                Phone No
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Total Cost
+            </th>
+            <th>
+                No of Passengers
+            </th>
+            <th style="border-radius:0 5px 5px 0;"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr style="height:120px; ">
+            <td style="border-radius:5px 0 0 5px;"> 
+                @Html.DisplayFor(modelItem => item.Bookingid)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Bookingname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flightid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bookingdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bookingphone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bookingaddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bookingtotalcost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bookingtotalmembers)
+            </td>
+            <td style="border-radius:0 5px 5px 0; color:black">
+                <div style="padding:5px; background-color:rgb(249, 5, 5); color:white; text-decoration:none; border-radius:10px ; ">
+                @Html.ActionLink("Cancel", "Cancel", new { id=@item.Bookingid  }, new {onclick="return confirm('are you sure you want to cancel booking?');"})
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

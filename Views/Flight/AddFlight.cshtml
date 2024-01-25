@@ -1,0 +1,67 @@
+@model flightapp.Models.Suhasiniflight
+
+@{
+    ViewData["Title"] = "AddFlight";
+    Layout="~/Views/Shared/adminlayout.cshtml";
+}
+
+<h1>Add Flight</h1>
+
+
+<hr />
+<div class="row" style="width:280px;background-color: black;padding:25px; margin:25px; border-radius:10px;">
+    <div class="" style=" display:flex; flex-direction:column;align-items:center;justify-content:center;">
+        <form asp-action="AddFlight">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="display:flex; flex-direction:column;align-items:center;justify-content:center;">
+                <label asp-for="Flightid" class="control-label">Flight id</label>
+                <input asp-for="Flightid" class="form-control" style="color:black;padding-bottom: 5px;padding-top:5px; margin-top:5px;margin-bottom:5px;"/>
+                <span asp-validation-for="Flightid" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:flex; flex-direction:column;align-items:center;justify-content:center;">
+                <label asp-for="Flightname" class="control-label">Flight Name</label>
+                <input asp-for="Flightname" class="form-control" style="color:black;padding-bottom: 5px;padding-top:5px; margin-top:5px;margin-bottom:5px;" />
+                <span asp-validation-for="Flightname" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:flex; flex-direction:column;align-items:center;justify-content:center;">
+                <label asp-for="Flightsource" class="control-label">Source </label>
+                <input asp-for="Flightsource" class="form-control" style="color:black;padding-bottom: 5px;padding-top:5px; margin-top:5px;margin-bottom:5px;"/>
+                <span asp-validation-for="Flightsource" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:flex; flex-direction:column;align-items:center;justify-content:center;">
+                <label asp-for="Flightdestination" class="control-label">Destination</label>
+                <input asp-for="Flightdestination" class="form-control" style="color:black;padding-bottom: 5px;padding-top:5px; margin-top:5px;margin-bottom:5px;"/>
+                <span asp-validation-for="Flightdestination" class="text-danger"></span>
+            </div>
+             <div class="form-group" style="display:flex; flex-direction:column;align-items:center;justify-content:center;">
+                <label asp-for="Flightdate" class="control-label">Date</label>
+                <input type="date" asp-for="Flightdate" class="form-control" style="color:black;padding-bottom: 5px;padding-top:5px; margin-top:5px;margin-bottom:5px;"/>
+                <span asp-validation-for="Flightdate" class="text-danger"></span>
+            </div>
+             <div class="form-group" style="display:flex; flex-direction:column;align-items:center;justify-content:center;">
+                <label asp-for="Flightsourcetime" class="control-label">Source Time</label>
+                <input type="time"asp-for="Flightsourcetime" class="form-control" style="color:black;padding-bottom: 5px;padding-top:5px; margin-top:5px;margin-bottom:5px;" />
+                <span asp-validation-for="Flightsourcetime" class="text-danger"></span>
+            </div>
+             <div class="form-group" style="display:flex; flex-direction:column;align-items:center;justify-content:center;">
+                <label asp-for="Flightdestinationtime" class="control-label">Destination Time</label>
+                <input type="time"asp-for="Flightdestinationtime" class="form-control" style="color:black;padding-bottom: 5px;padding-top:5px; margin-top:5px;margin-bottom:5px;"/>
+                <span asp-validation-for="Flightdestinationtime" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:flex; flex-direction:column;align-items:center;justify-content:center;">
+                <label asp-for="Flightprice" class="control-label">Rate</label>
+                <input asp-for="Flightprice" class="form-control" style="color:black;padding-bottom: 5px;padding-top:5px; margin-top:5px;margin-bottom:5px;"/>
+                <span asp-validation-for="Flightprice" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:flex; flex-direction:column;align-items:center;justify-content:center;margin-top:7px;">
+                <input type="submit" value="ADD" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,39 @@
+@model flightapp.Models.Suhasinicustomer
+
+@{
+    ViewData["Title"] = "Login";
+    Layout="~/Views/Shared/Signuplayout.cshtml";
+}
+
+<h1 style="margin-top:25px ">LOGIN</h1>
+
+
+<hr />
+<div class="row" style="margin-top:-25px;">
+    <div class="" >
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Customeremail" class="control-label" style="padding-bottom: 5px;"></label>
+                <input asp-for="Customeremail" class="form-control" />
+                <span asp-validation-for="Customeremail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customerpw" class="control-label" style="padding-bottom: 5px;padding-top:5px;"></label>
+                <input asp-for="Customerpw" type="password" class="form-control" />
+                <span asp-validation-for="Customerpw" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group" style="display: flex; margin:auto; flex-direction:column; padding-bottom: 5px;padding-top:15px;">
+                <input type="submit" value="LOGIN" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
